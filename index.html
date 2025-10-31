@@ -2,7 +2,7 @@
 <html lang="fa" dir="rtl">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, user-scalable=yes">
     <title>راهکار هوشمند اتوماسیون کسب‌وکار</title>
     <style>
         * {
@@ -14,8 +14,9 @@
         body {
             font-family: 'Vazirmatn', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
             background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            padding: 20px;
+            padding: 10px;
             line-height: 1.8;
+            -webkit-font-smoothing: antialiased;
         }
 
         .container {
@@ -30,61 +31,62 @@
         .header {
             background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
             color: white;
-            padding: 60px 40px;
+            padding: 40px 20px;
             text-align: center;
         }
 
         .header h1 {
-            font-size: 3.2em;
-            margin-bottom: 20px;
+            font-size: clamp(1.8em, 5vw, 3.2em);
+            margin-bottom: 15px;
             font-weight: 700;
             text-shadow: 2px 2px 4px rgba(0,0,0,0.2);
+            line-height: 1.3;
         }
 
         .header .subtitle {
-            font-size: 1.5em;
+            font-size: clamp(1em, 3.5vw, 1.5em);
             opacity: 0.95;
-            margin-bottom: 25px;
+            margin-bottom: 20px;
             line-height: 1.6;
         }
 
         .header .tagline {
-            font-size: 1.2em;
+            font-size: clamp(0.9em, 2.5vw, 1.2em);
             opacity: 0.9;
             font-style: italic;
             background: rgba(255,255,255,0.1);
-            padding: 15px 30px;
+            padding: 12px 20px;
             border-radius: 50px;
             display: inline-block;
             margin-top: 10px;
         }
 
         .content {
-            padding: 50px 40px;
+            padding: 30px 20px;
         }
 
         .section {
-            margin-bottom: 60px;
+            margin-bottom: 40px;
         }
 
         .section-title {
-            font-size: 2.4em;
+            font-size: clamp(1.5em, 4vw, 2.4em);
             color: #667eea;
-            margin-bottom: 30px;
-            padding-bottom: 20px;
+            margin-bottom: 20px;
+            padding-bottom: 15px;
             border-bottom: 4px solid #764ba2;
             font-weight: 700;
             text-align: center;
+            line-height: 1.3;
         }
 
         .intro-text {
-            font-size: 1.25em;
+            font-size: clamp(1em, 2.5vw, 1.25em);
             color: #555;
-            line-height: 2;
+            line-height: 1.9;
             text-align: center;
-            max-width: 950px;
-            margin: 0 auto 40px;
-            padding: 30px;
+            margin: 0 auto 30px;
+            padding: 20px;
             background: #f8f9fa;
             border-radius: 15px;
             border-right: 5px solid #764ba2;
@@ -92,229 +94,207 @@
 
         .workflow-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 30px;
-            margin: 40px 0;
+            grid-template-columns: 1fr;
+            gap: 20px;
+            margin: 30px 0;
         }
 
         .workflow-card {
             background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
             color: white;
-            padding: 35px;
-            border-radius: 20px;
-            box-shadow: 0 10px 25px rgba(0,0,0,0.2);
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            padding: 25px 20px;
+            border-radius: 15px;
+            box-shadow: 0 8px 20px rgba(0,0,0,0.2);
             position: relative;
-        }
-
-        .workflow-card:hover {
-            transform: translateY(-10px);
-            box-shadow: 0 15px 35px rgba(0,0,0,0.3);
         }
 
         .workflow-card .number {
             position: absolute;
-            top: 20px;
-            left: 20px;
+            top: 15px;
+            left: 15px;
             background: rgba(255,255,255,0.25);
-            width: 60px;
-            height: 60px;
+            width: 50px;
+            height: 50px;
             border-radius: 50%;
             display: flex;
             align-items: center;
             justify-content: center;
-            font-size: 1.8em;
+            font-size: 1.5em;
             font-weight: 700;
         }
 
         .workflow-card h3 {
-            font-size: 1.7em;
-            margin-bottom: 20px;
-            padding-bottom: 15px;
+            font-size: clamp(1.2em, 3.5vw, 1.7em);
+            margin-bottom: 15px;
+            padding-bottom: 12px;
             border-bottom: 2px solid rgba(255,255,255,0.3);
-            padding-left: 80px;
+            padding-left: 65px;
+            line-height: 1.4;
         }
 
         .workflow-card .description {
-            font-size: 1.1em;
-            line-height: 1.8;
-            margin-bottom: 20px;
+            font-size: clamp(0.95em, 2.5vw, 1.1em);
+            line-height: 1.7;
+            margin-bottom: 15px;
             opacity: 0.95;
         }
 
         .workflow-card .benefits {
-            margin-top: 25px;
-            padding-top: 20px;
+            margin-top: 20px;
+            padding-top: 15px;
             border-top: 1px solid rgba(255,255,255,0.3);
         }
 
         .workflow-card .benefits strong {
             display: block;
-            margin-bottom: 12px;
-            font-size: 1.1em;
+            margin-bottom: 10px;
+            font-size: clamp(0.95em, 2.5vw, 1.1em);
         }
 
         .workflow-card .benefits li {
-            margin-bottom: 12px;
-            padding-right: 10px;
-            font-size: 1em;
+            margin-bottom: 10px;
+            padding-right: 5px;
+            font-size: clamp(0.9em, 2.3vw, 1em);
+            line-height: 1.6;
         }
 
         .benefits-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 25px;
-            margin: 40px 0;
+            grid-template-columns: 1fr;
+            gap: 20px;
+            margin: 30px 0;
         }
 
         .benefit-box {
             background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
-            padding: 35px;
-            border-radius: 20px;
+            padding: 25px 20px;
+            border-radius: 15px;
             text-align: center;
-            border-right: 6px solid #764ba2;
-            transition: transform 0.3s ease;
+            border-right: 5px solid #764ba2;
             box-shadow: 0 5px 15px rgba(0,0,0,0.1);
         }
 
-        .benefit-box:hover {
-            transform: translateY(-8px);
-            box-shadow: 0 10px 25px rgba(0,0,0,0.15);
-        }
-
         .benefit-box .icon {
-            font-size: 3.5em;
-            margin-bottom: 20px;
+            font-size: clamp(2.5em, 8vw, 3.5em);
+            margin-bottom: 15px;
         }
 
         .benefit-box h3 {
             color: #667eea;
-            font-size: 1.5em;
-            margin-bottom: 15px;
+            font-size: clamp(1.2em, 3.5vw, 1.5em);
+            margin-bottom: 12px;
             font-weight: 700;
         }
 
         .benefit-box p {
             color: #555;
-            font-size: 1.1em;
+            font-size: clamp(0.95em, 2.5vw, 1.1em);
             line-height: 1.7;
         }
 
         .stats-showcase {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
-            gap: 25px;
-            margin: 40px 0;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 15px;
+            margin: 30px 0;
         }
 
         .stat-card {
             background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
             color: white;
-            padding: 40px 30px;
-            border-radius: 20px;
+            padding: 25px 15px;
+            border-radius: 15px;
             text-align: center;
-            box-shadow: 0 8px 20px rgba(0,0,0,0.2);
-            transition: transform 0.3s ease;
-        }
-
-        .stat-card:hover {
-            transform: scale(1.05);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.2);
         }
 
         .stat-card .number {
-            font-size: 3.5em;
+            font-size: clamp(2em, 6vw, 3.5em);
             font-weight: 700;
-            margin-bottom: 15px;
+            margin-bottom: 10px;
             line-height: 1;
         }
 
         .stat-card .label {
-            font-size: 1.15em;
+            font-size: clamp(0.85em, 2.3vw, 1.15em);
             opacity: 0.95;
-            line-height: 1.5;
+            line-height: 1.4;
         }
 
         .timeline {
             position: relative;
-            padding: 40px 0;
-            max-width: 850px;
-            margin: 0 auto;
+            padding: 20px 0;
         }
 
         .timeline:before {
-            content: '';
-            position: absolute;
-            right: 60px;
-            top: 0;
-            bottom: 0;
-            width: 4px;
-            background: linear-gradient(to bottom, #764ba2, #667eea);
+            display: none;
         }
 
         .timeline-item {
             display: flex;
-            gap: 35px;
-            margin-bottom: 45px;
+            flex-direction: column;
+            gap: 15px;
+            margin-bottom: 30px;
             position: relative;
         }
 
         .timeline-marker {
             background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
             color: white;
-            min-width: 110px;
-            height: 110px;
+            width: 80px;
+            height: 80px;
             border-radius: 50%;
             display: flex;
             flex-direction: column;
             align-items: center;
             justify-content: center;
             font-weight: 700;
-            flex-shrink: 0;
-            box-shadow: 0 8px 20px rgba(0,0,0,0.2);
-            z-index: 2;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+            margin: 0 auto;
         }
 
         .timeline-marker .week {
-            font-size: 0.9em;
+            font-size: 0.8em;
             opacity: 0.9;
         }
 
         .timeline-marker .number {
-            font-size: 2.2em;
+            font-size: 1.8em;
         }
 
         .timeline-content {
             background: #f8f9fa;
-            padding: 30px;
-            border-radius: 15px;
-            flex: 1;
-            border-right: 5px solid #764ba2;
-            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            padding: 20px;
+            border-radius: 12px;
+            border-right: 4px solid #764ba2;
+            box-shadow: 0 3px 10px rgba(0,0,0,0.1);
         }
 
         .timeline-content h4 {
             color: #667eea;
-            font-size: 1.5em;
-            margin-bottom: 15px;
+            font-size: clamp(1.1em, 3vw, 1.5em);
+            margin-bottom: 12px;
             font-weight: 700;
         }
 
         .timeline-content p {
             color: #555;
-            font-size: 1.1em;
-            line-height: 1.8;
+            font-size: clamp(0.95em, 2.5vw, 1.1em);
+            line-height: 1.7;
         }
 
         .comparison-table {
             background: white;
-            border-radius: 20px;
-            overflow: hidden;
-            box-shadow: 0 8px 25px rgba(0,0,0,0.1);
-            margin: 40px 0;
+            border-radius: 15px;
+            overflow-x: auto;
+            -webkit-overflow-scrolling: touch;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            margin: 30px -10px;
         }
 
         .comparison-table table {
             width: 100%;
+            min-width: 600px;
             border-collapse: collapse;
         }
 
@@ -324,22 +304,17 @@
         }
 
         .comparison-table th {
-            padding: 25px;
+            padding: 15px 10px;
             text-align: right;
             font-weight: 700;
-            font-size: 1.2em;
+            font-size: clamp(0.85em, 2.3vw, 1.1em);
         }
 
         .comparison-table td {
-            padding: 22px 25px;
+            padding: 15px 10px;
             border-bottom: 1px solid #e0e0e0;
-            font-size: 1.1em;
+            font-size: clamp(0.85em, 2.3vw, 1em);
             text-align: right;
-        }
-
-        .comparison-table tbody tr:hover {
-            background-color: #f5f7fa;
-            transition: all 0.3s ease;
         }
 
         .comparison-table .before {
@@ -355,142 +330,224 @@
         .comparison-table .improvement {
             color: #28a745;
             font-weight: 700;
-            font-size: 1.15em;
+            font-size: clamp(0.9em, 2.5vw, 1.1em);
         }
 
         .highlight-section {
             background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
             color: white;
-            padding: 60px 40px;
-            margin: 60px -40px 0;
+            padding: 40px 20px;
+            margin: 40px -20px 0;
             text-align: center;
         }
 
         .highlight-section h2 {
-            font-size: 2.8em;
-            margin-bottom: 30px;
+            font-size: clamp(1.6em, 4.5vw, 2.8em);
+            margin-bottom: 20px;
             font-weight: 700;
+            line-height: 1.3;
         }
 
         .highlight-section p {
-            font-size: 1.4em;
-            line-height: 1.9;
-            max-width: 950px;
-            margin: 0 auto 35px;
+            font-size: clamp(1em, 2.8vw, 1.4em);
+            line-height: 1.8;
+            margin: 0 auto 25px;
             opacity: 0.95;
         }
 
         .cta-box {
             background: white;
             color: #667eea;
-            padding: 35px 50px;
-            border-radius: 20px;
+            padding: 20px 30px;
+            border-radius: 15px;
             display: inline-block;
-            margin-top: 25px;
-            font-size: 1.3em;
+            margin-top: 20px;
+            font-size: clamp(1em, 2.8vw, 1.3em);
             font-weight: 700;
-            box-shadow: 0 8px 25px rgba(0,0,0,0.3);
-            transition: transform 0.3s ease;
-        }
-
-        .cta-box:hover {
-            transform: scale(1.05);
+            box-shadow: 0 5px 20px rgba(0,0,0,0.3);
         }
 
         .features-list {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-            gap: 25px;
-            margin: 40px 0;
+            grid-template-columns: 1fr;
+            gap: 20px;
+            margin: 30px 0;
         }
 
         .feature-item {
             background: white;
-            padding: 30px;
-            border-radius: 15px;
-            border-right: 5px solid #764ba2;
-            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
-            transition: transform 0.3s ease;
-        }
-
-        .feature-item:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 8px 20px rgba(0,0,0,0.15);
+            padding: 20px;
+            border-radius: 12px;
+            border-right: 4px solid #764ba2;
+            box-shadow: 0 3px 10px rgba(0,0,0,0.1);
         }
 
         .feature-item h4 {
             color: #667eea;
-            font-size: 1.4em;
-            margin-bottom: 15px;
+            font-size: clamp(1.1em, 3vw, 1.4em);
+            margin-bottom: 12px;
             font-weight: 700;
         }
 
         .feature-item p {
             color: #555;
-            line-height: 1.8;
-            font-size: 1.05em;
+            line-height: 1.7;
+            font-size: clamp(0.95em, 2.5vw, 1.05em);
         }
 
         .footer {
             background: #2c3e50;
             color: white;
-            padding: 50px;
+            padding: 30px 20px;
             text-align: center;
-            font-size: 1.1em;
+            font-size: clamp(0.95em, 2.5vw, 1.1em);
         }
 
         .footer h3 {
-            font-size: 2em;
-            margin-bottom: 20px;
+            font-size: clamp(1.3em, 3.5vw, 2em);
+            margin-bottom: 15px;
         }
 
         .footer p {
-            margin: 10px 0;
+            margin: 8px 0;
             opacity: 0.9;
         }
 
         .footer .tagline {
-            margin-top: 25px;
+            margin-top: 20px;
             font-style: italic;
             opacity: 0.85;
-            font-size: 1.1em;
+            font-size: clamp(0.9em, 2.3vw, 1.1em);
+            line-height: 1.6;
         }
 
-        @media (max-width: 768px) {
-            .header h1 {
-                font-size: 2.2em;
+        /* Tablet Portrait and up */
+        @media (min-width: 600px) {
+            body {
+                padding: 15px;
             }
-            
-            .header .subtitle {
-                font-size: 1.2em;
+
+            .header {
+                padding: 50px 30px;
             }
 
             .content {
-                padding: 30px 20px;
+                padding: 40px 30px;
             }
 
             .workflow-grid {
-                grid-template-columns: 1fr;
+                grid-template-columns: repeat(2, 1fr);
+                gap: 25px;
             }
 
-            .timeline:before {
-                right: 40px;
+            .benefits-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .comparison-table {
+                margin: 30px 0;
+            }
+
+            .highlight-section {
+                margin: 50px -30px 0;
+                padding: 50px 30px;
+            }
+
+            .timeline-item {
+                flex-direction: row;
+                gap: 25px;
             }
 
             .timeline-marker {
-                min-width: 90px;
-                height: 90px;
+                margin: 0;
             }
 
-            .section-title {
-                font-size: 2em;
-            }
-
-            .intro-text {
-                font-size: 1.1em;
+            .timeline:before {
+                display: block;
+                content: '';
+                position: absolute;
+                right: 40px;
+                top: 0;
+                bottom: 0;
+                width: 3px;
+                background: linear-gradient(to bottom, #764ba2, #667eea);
             }
         }
 
+        /* Desktop */
+        @media (min-width: 992px) {
+            body {
+                padding: 20px;
+            }
+
+            .header {
+                padding: 60px 40px;
+            }
+
+            .content {
+                padding: 50px 40px;
+            }
+
+            .intro-text {
+                padding: 30px;
+                max-width: 950px;
+            }
+
+            .workflow-grid {
+                grid-template-columns: repeat(2, 1fr);
+                gap: 30px;
+            }
+
+            .benefits-grid {
+                grid-template-columns: repeat(2, 1fr);
+                gap: 25px;
+            }
+
+            .stats-showcase {
+                grid-template-columns: repeat(4, 1fr);
+                gap: 20px;
+            }
+
+            .features-list {
+                grid-template-columns: repeat(2, 1fr);
+                gap: 25px;
+            }
+
+            .timeline {
+                max-width: 850px;
+                margin: 0 auto;
+            }
+
+            .timeline:before {
+                right: 60px;
+                width: 4px;
+            }
+
+            .timeline-item {
+                gap: 35px;
+            }
+
+            .timeline-marker {
+                min-width: 110px;
+                height: 110px;
+            }
+
+            .highlight-section {
+                margin: 60px -40px 0;
+                padding: 60px 40px;
+            }
+        }
+
+        /* Touch-friendly improvements */
+        @media (hover: none) and (pointer: coarse) {
+            .workflow-card,
+            .benefit-box,
+            .feature-item {
+                -webkit-tap-highlight-color: rgba(0,0,0,0.1);
+            }
+        }
+
+        /* Print styles */
         @media print {
             body {
                 background: white;
@@ -501,10 +558,12 @@
                 box-shadow: none;
             }
 
-            .workflow-card:hover,
-            .benefit-box:hover,
-            .feature-item:hover {
-                transform: none;
+            .header {
+                page-break-after: avoid;
+            }
+
+            .section {
+                page-break-inside: avoid;
             }
         }
     </style>
@@ -561,7 +620,7 @@
                         <div class="number">۱</div>
                         <h3>جذب و پاسخ فوری به سرنخ‌ها</h3>
                         <p class="description">
-                            هر زمان که کسی از طریق وب‌سایت، شبکه‌های اجتماعی یا فرم‌های آنلاین با شما تماس می‌گیرد، فوراً پاسخ دریافت می‌کند—شب و روز، هفت روز هفته. اطلاعات به صورت خودکار ذخیره شده و تیم شما بلافاصله مطلع می‌شود.
+                            هر زمان که کسی از طریق وب‌سایت، شبکه‌های اجتماعی یا فرم‌های آنلاین با شما تماس می‌گیرد، فوراً پاسخ دریافت می‌کند—شب و روز، هفت روز هفته.
                         </p>
                         <div class="benefits">
                             <strong>مزایا:</strong>
@@ -569,26 +628,24 @@
                                 <li>✓ زمان پاسخ: کمتر از ۵ دقیقه</li>
                                 <li>✓ برداشت حرفه‌ای در اولین تماس</li>
                                 <li>✓ بدون نیاز به ورود دستی اطلاعات</li>
-                                <li>✓ تیم شما همیشه آگاه و به‌روز است</li>
-                                <li>✓ هیچ سرنخی از دست نمی‌رود</li>
+                                <li>✓ تیم شما همیشه آگاه است</li>
                             </ul>
                         </div>
                     </div>
 
                     <div class="workflow-card">
                         <div class="number">۲</div>
-                        <h3>پیگیری هوشمند پیشنهادها و قراردادها</h3>
+                        <h3>پیگیری هوشمند پیشنهادها</h3>
                         <p class="description">
-                            بعد از ارسال پیشنهاد قیمت یا پروپوزال، سیستم به صورت خودکار در زمان‌های بهینه پیگیری می‌کند. اگر مشتری پاسخ نداد، یادآوری‌های دوستانه و حرفه‌ای دریافت می‌کند تا شما همیشه در ذهن او باشید.
+                            بعد از ارسال پیشنهاد قیمت، سیستم به صورت خودکار در زمان‌های بهینه پیگیری می‌کند تا شما همیشه در ذهن مشتری باشید.
                         </p>
                         <div class="benefits">
-                            <strong>برنامه پیگیری سیستماتیک:</strong>
+                            <strong>برنامه پیگیری:</strong>
                             <ul>
-                                <li>✓ روز ۳: پیگیری دوستانه و بررسی نیازها</li>
-                                <li>✓ روز ۷: پاسخ به سوالات احتمالی</li>
-                                <li>✓ روز ۱۴: یادآوری نهایی و ارائه تخفیف (در صورت نیاز)</li>
-                                <li>✓ اجرای ۱۰۰٪ مداوم و بدون فراموشی</li>
-                                <li>✓ شخصی‌سازی پیام‌ها بر اساس نوع پروژه</li>
+                                <li>✓ روز ۳: پیگیری دوستانه</li>
+                                <li>✓ روز ۷: پاسخ به سوالات</li>
+                                <li>✓ روز ۱۴: یادآوری نهایی</li>
+                                <li>✓ اجرای ۱۰۰٪ مداوم</li>
                             </ul>
                         </div>
                     </div>
@@ -597,34 +654,32 @@
                         <div class="number">۳</div>
                         <h3>حضور مداوم در شبکه‌های اجتماعی</h3>
                         <p class="description">
-                            به صورت مستمر و برنامه‌ریزی شده محتوای باکیفیت در لینکدین، اینستاگرام و سایر شبکه‌های اجتماعی منتشر کنید—بدون اینکه هر روز ساعت‌ها وقت بگذارید. پروژه‌ها و تخصص خود را به نمایش بگذارید تا مشتریان جدید جذب کنید.
+                            به صورت مستمر محتوای باکیفیت در لینکدین، اینستاگرام و سایر شبکه‌های اجتماعی منتشر کنید—بدون اتلاف وقت روزانه.
                         </p>
                         <div class="benefits">
                             <strong>محتوای منتشر شده:</strong>
                             <ul>
-                                <li>✓ نمایش پروژه‌های موفق (قبل و بعد)</li>
-                                <li>✓ محتوای پشت صحنه و فرآیند کار</li>
-                                <li>✓ نظرات و توصیه‌نامه مشتریان راضی</li>
-                                <li>✓ بینش‌های صنعتی و نکات تخصصی</li>
-                                <li>✓ معرفی تیم و فرهنگ سازمانی</li>
+                                <li>✓ نمایش پروژه‌های موفق</li>
+                                <li>✓ محتوای پشت صحنه</li>
+                                <li>✓ نظرات مشتریان</li>
+                                <li>✓ بینش‌های تخصصی</li>
                             </ul>
                         </div>
                     </div>
 
                     <div class="workflow-card">
                         <div class="number">۴</div>
-                        <h3>ردیابی و بهبود رضایت مشتری</h3>
+                        <h3>ردیابی رضایت مشتری</h3>
                         <p class="description">
-                            پس از اتمام هر پروژه، به صورت خودکار نظرسنجی رضایت از مشتریان جمع‌آوری می‌شود. از مشتریان راضی برای گذاشتن نظر و معرفی شما درخواست می‌شود، در حالی که هر نگرانی یا نارضایتی فوری به اطلاع مدیران می‌رسد.
+                            پس از اتمام پروژه، به صورت خودکار نظرسنجی رضایت جمع‌آوری می‌شود. از مشتریان راضی برای معرفی شما درخواست می‌شود.
                         </p>
                         <div class="benefits">
-                            <strong>نتایج حاصل:</strong>
+                            <strong>نتایج:</strong>
                             <ul>
-                                <li>✓ ایجاد و تقویت اعتبار ۵ ستاره</li>
-                                <li>✓ رسیدگی فوری به مشکلات و نارضایتی‌ها</li>
-                                <li>✓ جمع‌آوری مستمر توصیه‌نامه‌ها</li>
-                                <li>✓ بهبود مستمر کیفیت خدمات</li>
-                                <li>✓ افزایش نرخ مشتریان وفادار</li>
+                                <li>✓ ایجاد اعتبار ۵ ستاره</li>
+                                <li>✓ رسیدگی فوری به مشکلات</li>
+                                <li>✓ جمع‌آوری توصیه‌نامه‌ها</li>
+                                <li>✓ بهبود کیفیت خدمات</li>
                             </ul>
                         </div>
                     </div>
@@ -639,75 +694,75 @@
                         <thead>
                             <tr>
                                 <th>شاخص</th>
-                                <th>وضعیت فعلی</th>
-                                <th>پس از اتوماسیون</th>
+                                <th>فعلی</th>
+                                <th>بعد</th>
                                 <th>تاثیر</th>
                             </tr>
                         </thead>
                         <tbody>
                             <tr>
-                                <td><strong>زمان پاسخ به سرنخ‌های جدید</strong></td>
-                                <td class="before">۴ تا ۲۴ ساعت</td>
-                                <td class="after">کمتر از ۵ دقیقه</td>
-                                <td class="improvement">⬆ ۹۵٪ سریع‌تر</td>
+                                <td><strong>زمان پاسخ</strong></td>
+                                <td class="before">۴-۲۴ ساعت</td>
+                                <td class="after">&lt;۵ دقیقه</td>
+                                <td class="improvement">⬆ ۹۵٪</td>
                             </tr>
                             <tr>
-                                <td><strong>پیگیری پیشنهادها و قراردادها</strong></td>
-                                <td class="before">دستی و نامنظم</td>
-                                <td class="after">۱۰۰٪ خودکار و برنامه‌ریزی شده</td>
-                                <td class="improvement">⬆ صفر فرصت از دست رفته</td>
+                                <td><strong>پیگیری</strong></td>
+                                <td class="before">دستی</td>
+                                <td class="after">۱۰۰٪ خودکار</td>
+                                <td class="improvement">⬆ کامل</td>
                             </tr>
                             <tr>
-                                <td><strong>فعالیت در شبکه‌های اجتماعی</strong></td>
-                                <td class="before">۱ تا ۲ پست در ماه</td>
-                                <td class="after">۸ تا ۱۲ پست در ماه</td>
-                                <td class="improvement">⬆ ۶ برابر دیده شدن بیشتر</td>
+                                <td><strong>شبکه اجتماعی</strong></td>
+                                <td class="before">۱-۲ پست</td>
+                                <td class="after">۸-۱۲ پست</td>
+                                <td class="improvement">⬆ ۶×</td>
                             </tr>
                             <tr>
-                                <td><strong>ردیابی و مدیریت سرنخ‌ها</strong></td>
-                                <td class="before">ایمیل‌ها و حافظه</td>
-                                <td class="after">داشبورد متمرکز و یکپارچه</td>
-                                <td class="improvement">⬆ شفافیت و کنترل کامل</td>
+                                <td><strong>ردیابی</strong></td>
+                                <td class="before">ایمیل</td>
+                                <td class="after">داشبورد</td>
+                                <td class="improvement">⬆ شفاف</td>
                             </tr>
                             <tr>
-                                <td><strong>زمان صرف امور اداری و تکراری</strong></td>
-                                <td class="before">۸ تا ۱۰ ساعت در هفته</td>
-                                <td class="after">۲ تا ۳ ساعت در هفته</td>
-                                <td class="improvement">⬆ ۵ تا ۷ ساعت صرفه‌جویی</td>
+                                <td><strong>زمان اداری</strong></td>
+                                <td class="before">۸-۱۰ ساعت</td>
+                                <td class="after">۲-۳ ساعت</td>
+                                <td class="improvement">⬆ ۵-۷ ساعت</td>
                             </tr>
                             <tr>
-                                <td><strong>جمع‌آوری بازخورد مشتریان</strong></td>
-                                <td class="before">موردی و غیرسیستماتیک</td>
-                                <td class="after">جمع‌آوری خودکار و مستمر</td>
-                                <td class="improvement">⬆ بهبود کیفیت خدمات</td>
+                                <td><strong>بازخورد</strong></td>
+                                <td class="before">موردی</td>
+                                <td class="after">مستمر</td>
+                                <td class="improvement">⬆ بهبود</td>
                             </tr>
                         </tbody>
                     </table>
                 </div>
 
-                <div class="stats-showcase" style="margin-top: 50px;">
+                <div class="stats-showcase" style="margin-top: 30px;">
                     <div class="stat-card">
                         <div class="number">۹۵٪</div>
-                        <div class="label">پاسخ‌گویی سریع‌تر به سرنخ‌ها</div>
+                        <div class="label">سریع‌تر</div>
                     </div>
                     <div class="stat-card">
                         <div class="number">۶×</div>
-                        <div class="label">افزایش دیده شدن در شبکه‌های اجتماعی</div>
+                        <div class="label">دیده شدن</div>
                     </div>
                     <div class="stat-card">
                         <div class="number">۵-۷</div>
-                        <div class="label">ساعت صرفه‌جویی هر هفته</div>
+                        <div class="label">ساعت</div>
                     </div>
                     <div class="stat-card">
                         <div class="number">۱۰۰٪</div>
-                        <div class="label">پیگیری مداوم و بدون فراموشی</div>
+                        <div class="label">پیگیری</div>
                     </div>
                 </div>
             </div>
 
             <!-- جدول زمانی اجرا -->
             <div class="section">
-                <h2 class="section-title">مسیر اجرای ساده در ۴ هفته</h2>
+                <h2 class="section-title">مسیر اجرا در ۴ هفته</h2>
                 <div class="timeline">
                     <div class="timeline-item">
                         <div class="timeline-marker">
@@ -716,7 +771,7 @@
                         </div>
                         <div class="timeline-content">
                             <h4>🎯 پایه‌گذاری و جذب سرنخ</h4>
-                            <p>راه‌اندازی سیستم ردیابی سرنخ‌ها و اتصال فرم‌های تماس وب‌سایت و شبکه‌های اجتماعی. از این هفته، هر درخواست جدید فوری پاسخ دریافت می‌کند و به صورت خودکار در سیستم ثبت می‌شود.</p>
+                            <p>راه‌اندازی سیستم ردیابی سرنخ‌ها و اتصال فرم‌های تماس. هر درخواست جدید فوری پاسخ می‌گیرد.</p>
                         </div>
                     </div>
 
@@ -726,8 +781,8 @@
                             <span class="number">۲</span>
                         </div>
                         <div class="timeline-content">
-                            <h4>📧 مدیریت پیشنهادها و پیگیری‌ها</h4>
-                            <p>پیاده‌سازی سیستم هوشمند ردیابی پیشنهادها با توالی پیگیری خودکار در روزهای ۳، ۷ و ۱۴. دیگر هیچ معامله بالقوه‌ای به دلیل فراموشی یا اشتغال ذهنی سرد نمی‌شود.</p>
+                            <h4>📧 مدیریت پیشنهادها</h4>
+                            <p>پیاده‌سازی سیستم هوشمند ردیابی پیشنهادها با توالی پیگیری خودکار.</p>
                         </div>
                     </div>
 
@@ -737,8 +792,8 @@
                             <span class="number">۳</span>
                         </div>
                         <div class="timeline-content">
-                            <h4>📱 اتوماسیون شبکه‌های اجتماعی</h4>
-                            <p>ساخت تقویم محتوای ۳ ماهه و راه‌اندازی انتشار خودکار در لینکدین، اینستاگرام و فیسبوک. حضور مستمر و حرفه‌ای در شبکه‌های اجتماعی بدون نیاز به مدیریت روزانه.</p>
+                            <h4>📱 شبکه‌های اجتماعی</h4>
+                            <p>ساخت تقویم محتوا و راه‌اندازی انتشار خودکار در لینکدین و اینستاگرام.</p>
                         </div>
                     </div>
 
@@ -748,8 +803,8 @@
                             <span class="number">۴</span>
                         </div>
                         <div class="timeline-content">
-                            <h4>⭐ بازخورد مشتری و بهینه‌سازی</h4>
-                            <p>راه‌اندازی سیستم خودکار نظرسنجی رضایت و درخواست نظرات. تنظیم و بهینه‌سازی تمام سیستم‌ها بر اساس نتایج واقعی و بازخوردهای دریافتی.</p>
+                            <h4>⭐ بازخورد و بهینه‌سازی</h4>
+                            <p>راه‌اندازی سیستم خودکار نظرسنجی و بهینه‌سازی بر اساس نتایج واقعی.</p>
                         </div>
                     </div>
                 </div>
@@ -760,40 +815,40 @@
                 <h2 class="section-title">آنچه در این پروژه دریافت می‌کنید</h2>
                 <div class="features-list">
                     <div class="feature-item">
-                        <h4>🔧 راه‌اندازی و پیکربندی کامل</h4>
-                        <p>ما تمام فرآیندهای فنی، نصب و راه‌اندازی را انجام می‌دهیم. شما یک سیستم کاملاً کاربردی، تست شده و آماده به کار تحویل می‌گیرید که از روز اول قابل استفاده است.</p>
+                        <h4>🔧 راه‌اندازی کامل</h4>
+                        <p>تمام فرآیندهای فنی، نصب و راه‌اندازی را انجام می‌دهیم. سیستم کاملاً آماده و تست شده تحویل می‌گیرید.</p>
                     </div>
                     <div class="feature-item">
-                        <h4>📚 آموزش جامع و مستندات</h4>
-                        <p>تیم شما آموزش عملی و کاربردی دریافت می‌کند. همچنین مستندات کامل فارسی برای مدیریت و استفاده از سیستم در اختیار شما قرار می‌گیرد تا بتوانید با اطمینان کامل سیستم را اداره کنید.</p>
+                        <h4>📚 آموزش جامع</h4>
+                        <p>تیم شما آموزش عملی دریافت می‌کند. مستندات کامل فارسی برای مدیریت سیستم در اختیار شما قرار می‌گیرد.</p>
                     </div>
                     <div class="feature-item">
-                        <h4>📊 داشبورد مدیریتی سفارشی</h4>
-                        <p>یک داشبورد تحلیلی اختصاصی که تمام سرنخ‌ها، پیشنهادها، وضعیت پروژه‌ها و شاخص‌های کلیدی عملکرد را در یک نگاه به شما نمایش می‌دهد. همیشه بدانید در هر لحظه چه اتفاقی می‌افتد.</p>
+                        <h4>📊 داشبورد مدیریتی</h4>
+                        <p>یک داشبورد تحلیلی که تمام سرنخ‌ها، پیشنهادها و شاخص‌های کلیدی را در یک نگاه نمایش می‌دهد.</p>
                     </div>
                     <div class="feature-item">
-                        <h4>✉️ قالب‌های پیام حرفه‌ای</h4>
-                        <p>مجموعه کاملی از قالب‌های ایمیل و پیام شخصی‌سازی شده برای هر سناریو—از اولین تماس تا پیگیری‌های چندگانه، از تشکر بعد از پروژه تا درخواست نظرات. همه چیز آماده و قابل تنظیم است.</p>
+                        <h4>✉️ قالب‌های پیام</h4>
+                        <p>مجموعه کامل قالب‌های ایمیل و پیام شخصی‌سازی شده برای هر سناریو—همه چیز آماده است.</p>
                     </div>
                     <div class="feature-item">
-                        <h4>📱 استراتژی و تقویم محتوای اجتماعی</h4>
-                        <p>یک تقویم محتوای کامل ۳ ماهه متناسب با صنعت، مخاطبان و اهداف کسب‌وکار شما. شامل ایده‌های پست، هشتگ‌های مناسب و راهنمای تولید محتوا.</p>
+                        <h4>📱 تقویم محتوا</h4>
+                        <p>یک تقویم محتوای کامل ۳ ماهه متناسب با صنعت و مخاطبان شما. شامل ایده‌های پست و راهنمای تولید محتوا.</p>
                     </div>
                     <div class="feature-item">
-                        <h4>🔄 نظارت و بهینه‌سازی مستمر</h4>
-                        <p>ما عملکرد سیستم را به طور مداوم نظارت می‌کنیم و بر اساس داده‌ها و نتایج، بهبودهای لازم را اعمال می‌کنیم تا همیشه بهترین نتیجه را دریافت کنید.</p>
+                        <h4>🔄 نظارت مستمر</h4>
+                        <p>عملکرد سیستم را مداوم نظارت می‌کنیم و بر اساس داده‌ها، بهبودهای لازم را اعمال می‌کنیم.</p>
                     </div>
                 </div>
             </div>
 
             <!-- بخش فراخوان به اقدام -->
             <div class="highlight-section">
-                <h2>آماده برای تحول دیجیتال کسب‌وکار خود هستید؟</h2>
+                <h2>آماده برای تحول دیجیتال؟</h2>
                 <p>
-                    دیگر سرنخ‌ها را به دلیل تاخیر در پاسخ‌دهی از دست ندهید. دیگر ساعت‌ها را صرف کارهای تکراری و اداری نکنید. 
+                    دیگر سرنخ‌ها را به دلیل تاخیر از دست ندهید. دیگر ساعت‌ها را صرف کارهای تکراری نکنید.
                 </p>
                 <p>
-                    شروع کنید به تمرکز روی آنچه واقعاً اهمیت دارد: رشد کسب‌وکار، بستن قراردادهای بیشتر و ارائه خدمات عالی به مشتریانتان.
+                    شروع کنید به تمرکز روی آنچه واقعاً اهمیت دارد: رشد کسب‌وکار و خدمات عالی به مشتریان.
                 </p>
                 <div class="cta-box">
                     💬 بیایید درباره اتوماسیون کسب‌وکار شما صحبت کنیم
